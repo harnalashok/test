@@ -1,3 +1,9 @@
+# Last amended: 10/08/2026
+# Execute the script as below:
+# cd ~/
+# wget https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/n8n_reset.sh
+# bash n8n_reset.sh
+
 # Reset n8n password
 echo '#!/bin/bash'                                          >  /home/$USER/reset_n8n.sh
 echo " "                                                   >> /home/$USER/reset_n8n.sh
