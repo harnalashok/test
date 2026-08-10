@@ -50,4 +50,5 @@ echo "echo 'n8n version is'"                   						                >> /home/$U
 echo "docker exec -it n8n n8n --version"    							        >> /home/$USER/start_n8n.sh
 
 chmod +x /home/$USER/*.sh
+echo "Done......"
 
