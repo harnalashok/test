@@ -1,0 +1,92 @@
+{
+  "name": "basic LLM Chain",
+  "nodes": [
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+      "typeVersion": 1.4,
+      "position": [
+        -432,
+        -96
+      ],
+      "id": "53a4061c-c31d-4ba0-aa4a-718270578598",
+      "name": "When chat message received",
+      "webhookId": "6f3f21ff-5fca-42dc-80a6-3564705dc453"
+    },
+    {
+      "parameters": {
+        "messages": {
+          "messageValues": []
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        -128,
+        -80
+      ],
+      "id": "4292aa3e-b36d-438c-a06b-f68f5f149762",
+      "name": "Basic LLM Chain"
+    },
+    {
+      "parameters": {
+        "model": "llama3.2:latest",
+        "options": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatOllama",
+      "typeVersion": 1,
+      "position": [
+        -128,
+        128
+      ],
+      "id": "f3464f41-5ad7-4187-b118-488a3f598b3e",
+      "name": "Ollama Chat Model",
+      "credentials": {
+        "ollamaApi": {
+          "id": "87bUsKSG9wNeFh7i",
+          "name": "Ollama account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When chat message received": {
+      "main": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ollama Chat Model": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Basic LLM Chain",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "be260e78-dc0e-4f5a-b422-ea25626375c8",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a35db63a1b8ad11a89579c529a870af9bb13daf6c4c995b5f366b37ffaaa196"
+  },
+  "id": "ys1ftzpeCfIpSspl",
+  "tags": []
+}
