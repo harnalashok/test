@@ -67,11 +67,11 @@ echo "Install llamaindex folder of examples. Takes time..."
 sleep 2
 #  Download github folder 'llamaindex' using command line
 #  Can copy and paste all at once:
-cd /home/$USER
 cd ~/   
 echo "  "
-echo "   "
+echo "---------   "
 echo "Installing llamaindexExamples"
+echo "---------   "
 sleep 3
 rm -rf /home/$USER/Documents/llamaindexExamples
 mkdir -p /home/$USER/Documents/llamaindexExamples
@@ -85,7 +85,7 @@ find . -maxdepth 1 ! -name "llamaindex" ! -name "." ! -name ".." -delete
 cd /home/$USER/Documents
 mkdir llamaindex
 cd llamaindex
-mv /home/$USER/Documents/llamaindexExamples/llamaindex/* 
+mv /home/$USER/Documents/llamaindexExamples/llamaindex/* .
 rm -rf /home/$USER/Documents/llamaindexExamples
 cd /home/$USER
 rm -rf /home/$USER/lprojects
@@ -93,6 +93,5 @@ mkdir /home/$USER/lprojects
 cp /home/$USER/Documents/llamaindex/revised14042026/*.pdf    /home/$USER/lprojects
 cp /home/$USER/Documents/llamaindex/revised14042026/*.ipynb  /home/$USER/lprojects
 echo "llamaindexExamples_installed.txt" > /home/$USER/llamaindexExamples_installed.txt
-
 echo "Done......"
 
