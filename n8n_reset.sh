@@ -4,7 +4,7 @@
 # wget https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/n8n_reset.sh
 # bash n8n_reset.sh
 
-# Reset n8n password
+# Reset n8n password script
 echo '#!/bin/bash'                                          >  /home/$USER/reset_n8n.sh
 echo " "                                                   >> /home/$USER/reset_n8n.sh
 echo "docker exec -it n8n n8n user-management:reset"       >> /home/$USER/reset_n8n.sh
@@ -18,7 +18,8 @@ echo "echo '   Last Name:   harnal'"                       >> /home/$USER/reset_
 echo "echo '   password:   Ashok@12345'"                   >> /home/$USER/reset_n8n.sh
 echo "echo '==**====**====='"                              >> /home/$USER/reset_n8n.sh
 
-# update n8n
+
+# update n8n script
 echo '#!/bin/bash'                                          >  /home/$USER/update_n8n.sh
 echo " "                                                   >> /home/$USER/update_n8n.sh
 echo "docker stop n8n"                                     >> /home/$USER/update_n8n.sh
@@ -28,9 +29,6 @@ echo "netstat -aunt | grep 5678"                           >> /home/$USER/update
 echo "echo '==**====**====='"                              >> /home/$USER/update_n8n.sh
 echo "docker pull docker.n8n.io/n8nio/n8n "                >> /home/$USER/update_n8n.sh
 echo "echo '   n8n updated'"                               >> /home/$USER/update_n8n.sh
-
-
-
 
 IP_ADDRESS=$(hostname -I | awk '{print $1}')
 # Fallback mechanism if hostname -I returns empty (common on macOS or minimal Linux)
@@ -59,5 +57,42 @@ echo  "docker exec -it n8n n8n --version"  																				   >> /home/$USER
 echo "echo \"\"\${IP_ADDRESS}\"\""                                                                                         >> /home/$USER/start_n8n.sh
 
 chmod +x /home/$USER/*.sh
+
+
+#############
+# Install llamaindex folder of examples
+# Installs the folder from github: LLM/llamaindex
+############
+echo "Install llamaindex folder of examples"
+sleep 2
+#  Download github folder 'llamaindex' using command line
+#  Can copy and paste all at once:
+cd /home/$USER
+cd ~/   
+echo "  "
+echo "   "
+echo "Installing llamaindexExamples"
+sleep 3
+rm -rf /home/$USER/Documents/llamaindexExamples
+mkdir -p /home/$USER/Documents/llamaindexExamples
+cd /home/$USER/Documents/llamaindexExamples
+git init
+git remote add origin https://github.com/harnalashok/LLMs.git
+git sparse-checkout init --cone
+git sparse-checkout set llamaindex
+git pull origin main
+find . -maxdepth 1 ! -name "llamaindex" ! -name "." ! -name ".." -delete
+cd /home/$USER/Documents
+mkdir llamaindex
+cd llamaindex
+mv /home/$USER/Documents/llamaindexExamples/llamaindex/* 
+rm -rf /home/$USER/Documents/llamaindexExamples
+cd /home/$USER
+rm -rf /home/$USER/lprojects
+mkdir /home/$USER/lprojects
+cp /home/$USER/Documents/llamaindex/revised14042026/*.pdf    /home/$USER/lprojects
+cp /home/$USER/Documents/llamaindex/revised14042026/*.ipynb  /home/$USER/lprojects
+echo "llamaindexExamples_installed.txt" > /home/$USER/llamaindexExamples_installed.txt
+
 echo "Done......"
 
