@@ -63,7 +63,7 @@ chmod +x /home/$USER/*.sh
 # Install llamaindex folder of examples
 # Installs the folder from github: LLM/llamaindex
 ############
-echo "Install llamaindex folder of examples"
+echo "Install llamaindex folder of examples. Takes time..."
 sleep 2
 #  Download github folder 'llamaindex' using command line
 #  Can copy and paste all at once:
