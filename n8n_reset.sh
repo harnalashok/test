@@ -90,10 +90,10 @@ mv /home/$USER/Documents/llamaindexExamples/llamaindex/* .
 rm -rf /home/$USER/Documents/llamaindexExamples
 cd /home/$USER
 rm -rf /home/$USER/lprojects
-mkdir /home/$USER/lprojects
+mkdir -p /home/$USER/lprojects/md_files
 cp /home/$USER/Documents/llamaindex/revised14042026/*.pdf    /home/$USER/lprojects
+cp /home/$USER/Documents/llamaindex/revised14042026/*.csv    /home/$USER/lprojects
 cp /home/$USER/Documents/llamaindex/revised14042026/*.ipynb  /home/$USER/lprojects
-cp /home/$USER/Documents/llamaindex/revised14042026/*.csv  /home/$USER/lprojects
-echo "llamaindexExamples_installed.txt" > /home/$USER/llamaindexExamples_installed.txt
+cp /home/$USER/Documents/llamaindex/data/md_files/*.md       /home/$USER/lprojects/md_files
 echo "Done......"
 
