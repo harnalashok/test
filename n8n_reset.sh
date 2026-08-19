@@ -1,8 +1,19 @@
-# Last amended: 16/08/2026
+#!/bin/bash
+
+# Last amended: 19/08/2026
 # Execute the script as below:
 # cd ~/
 # wget https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/n8n_reset.sh
 # bash n8n_reset.sh
+
+
+IP_ADDRESS=$(hostname -I | awk '{print $1}')
+# Fallback mechanism if hostname -I returns empty (common on macOS or minimal Linux)
+if [ -z "$IP_ADDRESS" ]; then
+	IP_ADDRESS=$(ip route get 1 // | awk '{print $7}')
+fi
+# Print the detected IP for visibility
+echo "Detected Local IP Address: $IP_ADDRESS"
 
 # Reset n8n password script
 echo '#!/bin/bash'                                          >  /home/$USER/reset_n8n.sh
@@ -61,23 +72,6 @@ fi
 # Print the detected IP for visibility
 echo "Detected Local IP Address: $IP_ADDRESS"
 
-# n8n start script for Ubuntu
-echo '#!/bin/bash'                                                                                                        > /home/$USER/start_n8n.sh
-echo " "                                                                                                                >> /home/$USER/start_n8n.sh   
-echo "IP_ADDRESS=\$(hostname -I | awk '{print \$1}')"                                                                   >> /home/$USER/start_n8n.sh                                                                                                    >> /home/$USER/start_n8n.sh
-echo "echo 'Access n8n at port 5678. Wait...starting...'"                                                               >> /home/$USER/start_n8n.sh
-echo "echo 'To update it, issue command: ./update_n8n.sh'"                                                              >> /home/$USER/start_n8n.sh
-echo "echo 'To stop it,   issue command:  docker stop n8n'"                                                              >> /home/$USER/start_n8n.sh
-echo "echo 'In case n8n download fails, press Windows+R and execute smc -stop '"                                         >> /home/$USER/start_n8n.sh
-echo "echo 'n8n community nodes available at:'"                                                                           >> /home/$USER/start_n8n.sh
-echo "echo '==>    https://ncnodes.com/packages'"                                                                          >> /home/$USER/start_n8n.sh
-echo "echo 'Use \"top -u $USER\" OR \"free -g \" command to see memory usage'"                                             >>  /home/$USER/start_n8n.sh
-echo "sleep 9"                                                                                                             >> /home/$USER/start_n8n.sh
-#echo "cd /home/$USER/n8n"                                                                                                  >> /home/$USER/start_n8n.sh
-echo "docker run -it -d --rm --name n8n -p 5678:5678 -e WEBHOOK_URL=\"http://${IP_ADDRESS}:5678/\" -e NODE_OPTIONS=\"--max-old-space-size=4096\" --network host -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n"   >> /home/$USER/start_n8n.sh
-echo "echo 'n8n version is'"    																						   >> /home/$USER/start_n8n.sh
-echo  "docker exec -it n8n n8n --version"  																				   >> /home/$USER/start_n8n.sh
-echo "echo \"\"\${IP_ADDRESS}\"\""                                                                                         >> /home/$USER/start_n8n.sh
 
 chmod +x /home/$USER/*.sh
 
