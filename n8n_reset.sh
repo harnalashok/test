@@ -95,6 +95,6 @@ cp /home/$USER/Documents/llamaindex/revised14042026/*.pdf    /home/$USER/lprojec
 cp /home/$USER/Documents/llamaindex/revised14042026/*.csv    /home/$USER/lprojects
 cp /home/$USER/Documents/llamaindex/revised14042026/*.ipynb  /home/$USER/lprojects
 cp /home/$USER/Documents/llamaindex/data/md_files/*.md       /home/$USER/lprojects/md_files
-cp /home/ashok/Documents/llamaindex/postgresql_SQL/*         /home/$USER/lprojects
+cp /home/$USER/Documents/llamaindex/postgresql_SQL/*         /home/$USER/lprojects
 echo "Done......"
 
