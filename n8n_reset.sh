@@ -118,6 +118,11 @@ bash update_n8n.sh
 
 echo "  "
 echo "Hard resetting n8n"
+echo "=========="
+echo "Password is: ashok"
+echo "  "
+echo "  "
+
 bash hard_reset_n8n.sh
 
 echo "  "
