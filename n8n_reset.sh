@@ -108,6 +108,7 @@ echo "Detected Local IP Address: $IP_ADDRESS"
 
 
 chmod +x /home/$USER/*.sh
+bash update_n8n.sh
 
 
 #############
