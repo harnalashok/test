@@ -110,9 +110,22 @@ echo "Detected Local IP Address: $IP_ADDRESS"
 chmod +x /home/$USER/*.sh
 
 # Some initial operations
+cd /home/$USER
+echo "  "
+echo "Updating n8n"
+echo "=========="
 bash update_n8n.sh
+
+echo "  "
+echo "Hard resetting n8n"
 bash hard_reset_n8n.sh
+
+echo "  "
+echo "Stopping n8n"
+echo "=========="
 docker stop n8n
+echo "Move on.."
+echo "=========="
 
 
 #############
