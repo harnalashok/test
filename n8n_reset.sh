@@ -108,8 +108,11 @@ echo "Detected Local IP Address: $IP_ADDRESS"
 
 
 chmod +x /home/$USER/*.sh
+
+# Some initial operations
 bash update_n8n.sh
 bash hard_reset_n8n.sh
+docker stop n8n
 
 
 #############
