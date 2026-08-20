@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Last amended: 19/08/2026
+# Last amended: 20/08/2026
 # Execute the script as below:
 # cd ~/
 # wget https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/n8n_reset.sh
