@@ -2,6 +2,7 @@
 cd ~/   
 echo "  "
 echo "   "
+rm llamaindexExamples.sh
 echo "Installing llamaindexExamples"
 sleep 3
 rm -rf /home/$USER/Documents/llamaindex
