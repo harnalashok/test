@@ -50,6 +50,10 @@ cp /home/$USER/Documents/llamaindex/postgresql_SQL/*.py          /home/$USER/lpr
 #cp /home/$USER/Documents/llamaindex/data/md_files/*.md       /home/$USER/lprojects/md_files
 
 #======= langchain install =====================
+python3 -m venv /home/$USER/langchain
+source /home/$USER/langchain/bin/activate
+# 1.6 Essentials software
+pip install --upgrade pip
 # pip install --upgrade pip
 pip install spyder numpy scipy pandas matplotlib sympy cython
 pip install jupyterlab
