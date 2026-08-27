@@ -122,3 +122,5 @@ echo "langchain_installed.txt" > /home/$USER/langchain_installed.txt
 chmod +x /home/$USER/*.sh
 chmod +x /home/$USER/start/*.sh
 chmod +x /home/$USER/stop/*.sh
+cd /home/$USER
+deactivate
