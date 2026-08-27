@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/llamaindexExamples.sh
+# wget -c https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/llamaindexExamples.sh
 # bash llamaindexExamples.sh
 
 cd ~/   
