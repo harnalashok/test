@@ -3,7 +3,7 @@
 # wget -c https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/llamaindexExamples.sh
 # bash llamaindexExamples.sh
 
-
+sudo sh -c 'echo "185.199.111.133 raw.githubusercontent.com" >> /etc/hosts'
 
 #################
 # langchain & langraph
