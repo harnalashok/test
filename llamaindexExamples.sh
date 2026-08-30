@@ -10,13 +10,11 @@ sudo sh -c 'echo "185.199.111.133 raw.githubusercontent.com" >> /etc/hosts'
 #################
 echo " "
 echo " "
-cd /home/$USER
-echo " "
-echo " "
-echo "------------"  
-echo "Installing langchain & langgraph"
-echo "-------------"
-
+echo "--------"
+echo "Installing langchain and langraph.."
+echo "--------"
+echo "   "
+sleep 3
 # Activate python environment at 'langchain'
 #  for installing langchain and llama-index
 ##############
@@ -33,18 +31,22 @@ pip install jupyterlab
 pip install ipython
 pip install notebook
 pip install streamlit
-# To connect to postgresql
-pip install psycopg2
 # Required for spyder:
-sudo apt install pyqt5-dev-tools -y
+echo $password | sudo -S apt install pyqt5-dev-tools -y
 # Huggingface and llama.cpp related
 pip install huggingface_hub
+# To connect to postgresql
+pip install psycopg2
+
 # Create script to activate 'langchain' env
 echo "echo 'To activate langchain+llamaIndex virtual envs, activate as:' "  > /home/$USER/activate_langchain_venv.sh
-echo "echo 'source /home/$USER/langchain/bin/activate' "                   >>  /home/$USER/activate_langchain_venv.sh
+echo "echo '         source /home/$USER/langchain/bin/activate' "          >>  /home/$USER/activate_langchain_venv.sh
+echo "echo 'Or, as:  . activate_langchain_env.sh' "                        >>  /home/$USER/activate_langchain_venv.sh
 echo "echo '(Note the change in prompt after activating)' "                >>  /home/$USER/activate_langchain_venv.sh
 echo "echo '(To deactivate, just enter the command: deactivate)' "         >>  /home/$USER/activate_langchain_venv.sh
 echo "source /home/$USER/langchain/bin/activate"                           >>  /home/$USER/activate_langchain_venv.sh
+echo "cd /home/$USER/lprojects"                                            >>  /home/$USER/activate_langchain_venv.sh
+
 chmod +x /home/$USER/*.sh
 sleep 2
 cp /home/$USER/activate_langchain_venv.sh  /home/$USER/start/activate_langchain_venv.sh
@@ -52,11 +54,14 @@ cp /home/$USER/activate_langchain_venv.sh  /home/$USER/stop/activate_langchain_v
 source /home/$USER/langchain/bin/activate
 pip install langchain
 pip install langchain-openai
+pip install langchain-ollama
 pip install langchain-community
 pip install langchain-experimental
 pip install langgraph
 pip install "langserve[all]"
 pip install langchain-cli
+pip install unstructured
+pip install unstructured[md]
 pip install llama-index llama-index-experimental pandas
 #################
 # llamaindex
@@ -77,6 +82,7 @@ pip install --upgrade transformers
 pip install faiss-cpu
 pip install qdrant-client llama-index-vector-stores-chroma 
 pip install llama-index-vector-stores-qdrant fastembed
+pip install -U llama-index-vector-stores-postgres
 # 1.3 Web access site
 pip install tavily-python
 # 1.4 Yahoo finance data
@@ -85,6 +91,7 @@ pip install yfinance
 pip install llama-index-llms-groq
 pip install llama-index-llms-together
 pip install llama-index-llms-mistralai
+pip install llama-index-llms-openrouter
 pip install  llama-index-experimental
 pip install polars
 chmod +x /home/$USER/*.sh
