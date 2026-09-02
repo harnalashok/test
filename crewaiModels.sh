@@ -2,10 +2,10 @@
 
 #!/bin/bash
 
-# wget -c https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/llamaindexExamples.sh
-# bash llamaindexExamples.sh
-
-
+# cd ~/
+# rm crewaiModels.sh
+# wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/crewaiModels.sh
+# bash crewaiModels.sh
 
 cd ~/   
 echo "  "
