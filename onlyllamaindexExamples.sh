@@ -1,8 +1,9 @@
 !#/bin/bash
 
-# rm 
+# cd ~/
+# rm onlyllamaindexExamples.sh
 # wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/onlyllamaindexExamples.sh
-# 
+# bash onlyllamaindexExamples.sh
 
 cd ~/   
 echo "  "
