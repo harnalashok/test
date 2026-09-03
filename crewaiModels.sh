@@ -5,9 +5,57 @@
 # wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/crewaiModels.sh
 # bash crewaiModels.sh
 
+
+##########
+echo "  "
+echo "------------"                            
+echo " Will install crewai"                     
+echo "----------"                              
+echo " "
+cd /home/$USER
+sleep 2
+
+# Our project folder
+mkdir /home/$USER/crewai_pjt
+# Make it writable by any program
+chmod -R 777 /home/$USER/crewai_pjt
+
+# Delete existing env
+rm -rf /home/$USER/crewai_env
+python3 -m venv crewai_env
+# b) Activate the env
+source /home/$USER/crewai_env/bin/activate
+
+# c) Now install crewai and other packages using uv
+uv pip install crewai crewai-tools crewai-cli langchain langchain-cli
+uv pip install langchain-openai langchain-ollama langchain-community  
+uv pip install langchain-experimental langchain-classic yfinance 
+uv pip install llama-index llama-index-llms-groq llama-index-core
+uv pip install llama-index-readers-file llama-index-embeddings-huggingface  
+uv pip install llama-index llama-index-experimental pandas
+uv pip install 'crewai[tools]'  newsapi-python
+uv pip install 'crewai-tools[mcp]'
+deactivate
+
+# Create script to activate 'crewai_env' env
+echo '#!/bin/bash'                                                         | tee     /home/$USER/activate_crewai_env.sh
+echo "echo 'Execute this file as: source activate_crewai_env.sh' "         | tee -a  /home/$USER/activate_crewai_env.sh
+echo "echo 'source /home/$USER/crewai_env/bin/activate' "                  | tee -a  /home/$USER/activate_crewai_env.sh
+echo "echo 'Or, as:               . activate_crewai_env.sh' "              | tee -a  /home/$USER/activate_crewai_env.sh
+echo "echo '(Note the change in prompt after activating)' "                | tee -a  /home/$USER/activate_crewai_env.sh
+echo "echo '(To deactivate, just enter the command: deactivate)' "         | tee -a  /home/$USER/activate_crewai_env.sh
+echo "source /home/$USER/crewai_env/bin/activate"                          | tee -a  /home/$USER/activate_crewai_env.sh
+echo "cd /home/$USER/crewai_pjt"                                           | tee -a  /home/$USER/activate_crewai_env.sh
+
+
+###########
+
+
+
 cd ~/   
 echo "  "
 echo "   "
+cd /home/$USER
 echo "Installing crewai Models"
 sleep 3
 rm -rf /home/$USER/Documents/crewaiModels
