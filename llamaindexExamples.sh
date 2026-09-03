@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# cd ~/
+# rm llamaindexExamples.sh
 # wget -c https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/llamaindexExamples.sh
 # bash llamaindexExamples.sh
 
