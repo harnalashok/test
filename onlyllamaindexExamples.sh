@@ -40,7 +40,7 @@ mkdir /home/$USER/lprojects/md_files_sample
 cp /home/$USER/Documents/llamaindex/data/*.pdf                   /home/$USER/lprojects/pdf
 cp /home/$USER/Documents/llamaindex/data/*.csv                   /home/$USER/lprojects/csv
 cp /home/$USER/Documents/llamaindex/revised14042026/txt_files/*  /home/$USER/lprojects/txt_files/
-cp /home/$USER/Documents/llamaindex/revised14042026/*            /home/$USER/lprojects/
+cp -r /home/$USER/Documents/llamaindex/revised14042026/*            /home/$USER/lprojects/
 cp /home/$USER/Documents/llamaindex/data/customers-100.csv	     /home/$USER/lprojects/
 cp /home/$USER/Documents/llamaindex/data/md_files/*.md           /home/$USER/lprojects/md_files/
 cp /home/$USER/Documents/llamaindex/postgresql/*.md              /home/$USER/lprojects/md_files1/
