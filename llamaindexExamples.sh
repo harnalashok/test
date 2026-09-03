@@ -132,6 +132,8 @@ mkdir /home/$USER/lprojects/md_files1
 mkdir /home/$USER/lprojects/pg
 mkdir /home/$USER/lprojects/pdf
 mkdir /home/$USER/lprojects/csv
+mkdir /home/$USER/lprojects/md_files_sample
+
 cp /home/$USER/Documents/llamaindex/data/*.pdf                   /home/$USER/lprojects/pdf
 cp /home/$USER/Documents/llamaindex/data/*.csv                   /home/$USER/lprojects/csv
 cp -r /home/$USER/Documents/llamaindex/revised14042026/txt_files/*  /home/$USER/lprojects/txt_files/
@@ -141,5 +143,8 @@ cp /home/$USER/Documents/llamaindex/data/md_files/*.md           /home/$USER/lpr
 cp /home/$USER/Documents/llamaindex/postgresql/*.md              /home/$USER/lprojects/md_files1/
 cp /home/$USER/Documents/llamaindex/postgresql/*.ipynb           /home/$USER/lprojects/pg
 cp /home/$USER/Documents/llamaindex/postgresql_SQL/*.py          /home/$USER/lprojects/pg 
-
-############################33
+cd /home/$USER/lprojects/md_files/
+cp SCorder1.md  Scorder2.md  SCorder4.md                         /home/$USER/lprojects/md_files_sample/
+cd /home/$USER
+  
+  ############################33
