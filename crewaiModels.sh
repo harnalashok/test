@@ -5,6 +5,13 @@
 # wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/crewaiModels.sh
 # bash crewaiModels.sh
 
+## Install python3.13
+# sudo add-apt-repository ppa:deadsnakes/ppa
+# sudo apt update
+## You need both the base package and the venv tool for 3.13
+# sudo apt install python3.13 python3.13-venv
+
+
 
 ##########
 echo "  "
@@ -22,7 +29,7 @@ chmod -R 777 /home/$USER/crewai_pjt
 
 # Delete existing env
 rm -rf /home/$USER/crewai_env
-python3 -m venv crewai_env
+python3.13 -m venv crewai_env
 # b) Activate the env
 source /home/$USER/crewai_env/bin/activate
 
