@@ -11,10 +11,6 @@
 ## You need both the base package and the venv tool for 3.13
 # sudo apt install python3.13 python3.13-venv
 
-
-
-cd /home/$USER
-echo "  "
 echo "------------"                            
 echo " Will install crewai"                     
 echo "----------"                              
@@ -47,17 +43,17 @@ pandas
 newsapi-python
 crewai[tools]
 crewai-tools[mcp]
-ddgs
-duckduckgo-search
 EOF
 )
 
 # 3. Clean up the placeholder file
 #rm -f ~/temp_reqs.txt
 
-uv tool install --force crewai
+uv tool install crewai
 
 # Our project folder
+rm -rf /home/$USER/crewai_pjt 
+mkdir /home/$USER/crewai_pjt
 # Make it writable by any program
 chmod -R 777 /home/$USER/crewai_pjt
 cd crewai_pjt
@@ -92,13 +88,14 @@ echo "  "
 echo "   "
 echo "Installing crewai Models"
 sleep 3
+
+# Delete any folders left from previous copying
 rm -rf /home/$USER/Documents/crewaiModels
 rm -rf /home/$USER/Documents/crewaiExamples
-#rm -rf /home/$USER/crewai_pjt
 
+# We download files from git to 'Documents/crewaiExamples/crewaiModels'
+echo "Downloading files"
 mkdir -p /home/$USER/Documents/crewaiExamples
-#mkdir -p /home/$USER/crewai_pjt
-
 cd /home/$USER/Documents/crewaiExamples
 git init
 git remote add origin https://github.com/harnalashok/LLMs.git
@@ -106,18 +103,27 @@ git sparse-checkout init --cone
 git sparse-checkout set crewaiModels
 git pull origin main
 find . -maxdepth 1 ! -name "crewaiModels" ! -name "." ! -name ".." -delete
+
+# Create another crewaiModels folder but this time here 'Documents/crewaiModels'
+# And move files from 'Documents/crewaiExamples/crewaiModels' to 'Documents/crewaiModels'
 cd /home/$USER/Documents
 mkdir crewaiModels
 cd crewaiModels
 mv /home/$USER/Documents/crewaiExamples/crewaiModels/* .
 rm -rf /home/$USER/Documents/crewaiExamples
+
+# Next copy from 'Documents/crewaiModels' to crewai_pjt
 cd /home/$USER
 \cp -r /home/$USER/Documents/crewaiModels/. /home/$USER/crewai_pjt
-mkdir /home/ashok/crewai_pjt/servers
-cp /home/ashok/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_server.py /home/ashok/crewai_pjt/servers/
-cp /home/ashok/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_client.py /home/ashok/crewai_pjt/
 
-
+# mcp servers
+mkdir /home/$USER/crewai_pjt/servers
+cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_server.py     /home/$USER/crewai_pjt/servers/
+cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_client.py     /home/$USER/crewai_pjt/
+#     Job data
+mkdir /home/$USER/crewai_pjt/job_data
+cp    /home/$USER/crewai_pjt/Exercises/jobs.csv  /home/$USER/crewai_pjt/job_profile_matching/job_data
+cp    /home/$USER/crewai_pjt/Exercises/cv.md     /home/$USER/crewai_pjt/job_profile_matching/job_data
 
 
 
