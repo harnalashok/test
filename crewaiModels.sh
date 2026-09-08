@@ -90,15 +90,14 @@ echo "cd /home/$USER/crewai_pjt"                                           | tee
 cd ~/   
 echo "  "
 echo "   "
-cd /home/$USER
 echo "Installing crewai Models"
 sleep 3
 rm -rf /home/$USER/Documents/crewaiModels
 rm -rf /home/$USER/Documents/crewaiExamples
-rm -rf /home/$USER/crewai_pjt
+#rm -rf /home/$USER/crewai_pjt
 
 mkdir -p /home/$USER/Documents/crewaiExamples
-mkdir -p /home/$USER/crewai_pjt
+#mkdir -p /home/$USER/crewai_pjt
 
 cd /home/$USER/Documents/crewaiExamples
 git init
@@ -113,7 +112,7 @@ cd crewaiModels
 mv /home/$USER/Documents/crewaiExamples/crewaiModels/* .
 rm -rf /home/$USER/Documents/crewaiExamples
 cd /home/$USER
-cp -r /home/$USER/Documents/crewaiModels/*  /home/$USER/crewai_pjt
+\cp -r /home/$USER/Documents/crewaiModels/. /home/$USER/crewai_pjt
 mkdir /home/ashok/crewai_pjt/servers
 cp /home/ashok/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_server.py /home/ashok/crewai_pjt/servers/
 cp /home/ashok/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_client.py /home/ashok/crewai_pjt/
