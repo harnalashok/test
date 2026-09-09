@@ -6,10 +6,13 @@
 # bash crewaiModels.sh
 
 ## Install python3.13
-# sudo add-apt-repository ppa:deadsnakes/ppa
-# sudo apt update
+# sudo add-apt-repository ppa:deadsnakes/ppa -y
+# sudo apt update -y
 ## You need both the base package and the venv tool for 3.13
-# sudo apt install python3.13 python3.13-venv
+# sudo apt install python3.13 python3.13-venv  -y
+## Check if installed
+# python3.13 --version
+
 
 echo "------------"                            
 echo " Will install crewai"                     
