@@ -122,6 +122,8 @@ cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_server
 cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_client.py     /home/$USER/crewai_pjt/
 #     Job data
 mkdir /home/$USER/crewai_pjt/job_data
+cp    /home/$USER/crewai_pjt/Exercises/jobs.csv  /home/$USER/crewai_pjt/job_data
+cp    /home/$USER/crewai_pjt/Exercises/cv.md     /home/$USER/crewai_pjt/job_data
 cp    /home/$USER/crewai_pjt/Exercises/jobs.csv  /home/$USER/crewai_pjt/job_profile_matching/job_data
 cp    /home/$USER/crewai_pjt/Exercises/cv.md     /home/$USER/crewai_pjt/job_profile_matching/job_data
 
