@@ -69,6 +69,8 @@ uv add langchain-experimental langchain-classic yfinance
 uv add llama-index llama-index-llms-groq llama-index-core
 uv add llama-index-readers-file llama-index-embeddings-huggingface  
 uv add llama-index llama-index-experimental pandas
+uv add llama-index-embeddings-ollama
+uv add llama-index-llms-ollama
 uv add 'crewai[tools]'  newsapi-python
 uv add 'crewai-tools[mcp]'
 uv add ddgs duckduckgo-search
