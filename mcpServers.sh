@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAst amended: 22nd Sep, 2026
+# LAst amended: 23rd Sep, 2026
 
 ## =========
 # Replace existing mcp_servers folder in WSL ubuntu 
@@ -11,10 +11,11 @@
 ## =========
 
 cd ~/
-wget -Nc https://github.com/harnalashok/LLMs/blob/main/crewaiModels/mcpServer.zip?raw=true
-mv mcpServer.zip\?raw\=true  mcpServer.zip
+wget -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
+mv 'mcpServers.zip?raw=true' mcpServers.zip
 rm -rf /home/$USER/crewai_pjt/mcp_servers/*
-mv mcpServer.zip /home/$USER/crewai_pjt/mcp_servers/
+mkdir -p /home/ashok/crewai_pjt/mcp_servers
+mv mcpServers.zip /home/$USER/crewai_pjt/mcp_servers/
 cd  /home/$USER/crewai_pjt/mcp_servers/
-unzip mcpServer.zip
+unzip mcpServers.zip
 cd ~/
