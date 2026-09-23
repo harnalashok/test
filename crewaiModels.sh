@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#$$$$$$
+# CHECK IF PYTHON3.13 INSTALLED
 # cd ~/
 # rm crewaiModels.sh
 # wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/crewaiModels.sh
