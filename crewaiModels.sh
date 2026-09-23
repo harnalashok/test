@@ -74,6 +74,7 @@ uv add llama-index-llms-ollama
 uv add 'crewai[tools]'  newsapi-python
 uv add 'crewai-tools[mcp]'
 uv add ddgs duckduckgo-search
+uv add ollama
 cd /home/$USER
 
 # Create script to activate 'crewai_pjt' env
