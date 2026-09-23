@@ -2,6 +2,7 @@
 
 #$$$$$$
 # CHECK IF PYTHON3.13 INSTALLED
+# AND IS ALSO THE DEFAULT VERSION
 # cd ~/
 # rm crewaiModels.sh
 # wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/crewaiModels.sh
