@@ -5,6 +5,7 @@
 ## =========
 # Replace existing mcp_servers folder in WSL ubuntu 
 #  cd ~/
+#  rm mcpServers.sh
 #  wget -Nc https://raw.githubusercontent.com/harnalashok/test/refs/heads/main/mcpServers.sh
 #  chmod +x *.sh
 #  bash mcpServers.sh
