@@ -26,6 +26,8 @@ cd ~/
  . activate_crewai_env.sh
 uv add llama-index-llms-ollama
 uv add llama-index-embeddings-ollama
+uv add "mcp[cli]" pandas-ta alpaca-py
+uv add ollama
 cd /home/ashok/crewai_pjt/python_approach/CR1_files
 mv 7a.sports_rag_analyst_intelli.py 7c.sports_rag_analyst_intelli.py
 wget -Nc https://raw.githubusercontent.com/harnalashok/LLMs/refs/heads/main/crewaiModels/python_approach/CR1_files/7a.sports_rag_analyst_intelli.py
