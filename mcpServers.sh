@@ -13,7 +13,7 @@
 
 cd ~/
 #wget -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
-wget -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
+wget  -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
 mv 'mcpServers.zip?raw=true' mcpServers.zip
 rm -rf /home/$USER/crewai_pjt/mcp_servers/*
 mkdir -p /home/ashok/crewai_pjt/mcp_servers
