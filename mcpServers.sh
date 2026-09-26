@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAst amended: 23rd Sep, 2026
+# LAst amended: 26th Sep, 2026
 
 ## =========
 # Replace existing mcp_servers folder in WSL ubuntu 
