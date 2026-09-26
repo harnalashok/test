@@ -17,17 +17,34 @@
 # python3.13 --version
 
 
-echo "------------"                            
-echo " Will install crewai"                     
-echo "----------"                              
+##########REVISED CODE WITH pythom3.13 default#$$$$$$$$$$$$$$
+# My code to install crewai and other required libraries is as follows (above).
+# But this installation uses the default python which is sometimes python3.14
+# even though python3.13 might also be installed. Please modify the code to
+# install  python3.13 virtual env and work from there:
+
+cd /home/$USER
+echo "  "
+echo "------------"
+echo " Will install crewai"
+echo "----------"
 echo " "
 cd /home/$USER
 sleep 2
+
 # 1. Switch to your home directory
 cd ~/
-curl -LsSf https://astral.sh/uv/install.sh | sh 
-# 2. Compile to a local temp file (which uv deletes instantly anyway)
-uv pip compile --system -o ~/temp_reqs.txt -q <(cat <<EOF
+
+curl -LsSf https://astral.sh/uv/install.sh | sh
+# Make sure uv is on PATH for the rest of this script
+source "$HOME/.local/bin/env" 2>/dev/null || export PATH="$HOME/.local/bin:$PATH"
+
+# 2. Make sure Python 3.13 is available to uv, regardless of system default
+uv python install 3.13
+
+# 3. Compile to a local temp file (which uv deletes instantly anyway)
+#    Pin --python 3.13 so resolution matches what we'll actually run on
+uv pip compile --python 3.13 -o ~/temp_reqs.txt -q <(cat <<EOF
 crewai
 crewai-tools
 crewai-cli
@@ -52,34 +69,44 @@ crewai-tools[mcp]
 EOF
 )
 
-# 3. Clean up the placeholder file
+# 4. Clean up the placeholder file
 #rm -f ~/temp_reqs.txt
 
-uv tool install crewai
+# Install the crewai CLI tool itself using 3.13 (independent of any project venv)
+uv tool install crewai --python 3.13
 
 # Our project folder
-rm -rf /home/$USER/crewai_pjt 
-mkdir /home/$USER/crewai_pjt
+rm -rf /home/$USER/crewai_pjt
+mkdir -p /home/$USER/crewai_pjt/data
 # Make it writable by any program
 chmod -R 777 /home/$USER/crewai_pjt
-cd crewai_pjt
-uv init
+cd /home/$USER/crewai_pjt
+
+# Pin the project to Python 3.13 — this creates .python-version and
+# ensures `uv venv` / `uv add` below build the venv with 3.13, not whatever default python3 resolves to
+uv init --python 3.13
+uv venv --python 3.13
+
 uv add crewai crewai-tools
-# # c) Now install crewai and other packages using uv
+# c) Now install crewai and other packages using uv
 uv add crewai crewai-tools crewai-cli langchain langchain-cli
-uv add langchain-openai langchain-ollama langchain-community  
-uv add langchain-experimental langchain-classic yfinance 
+uv add langchain-openai langchain-ollama langchain-community
+uv add langchain-experimental langchain-classic yfinance
 uv add llama-index llama-index-llms-groq llama-index-core
-uv add llama-index-readers-file llama-index-embeddings-huggingface  
+uv add llama-index-readers-file llama-index-embeddings-huggingface
 uv add llama-index llama-index-experimental pandas
-uv add llama-index-embeddings-ollama
-uv add llama-index-llms-ollama
-uv add 'crewai[tools]'  newsapi-python
+uv add 'crewai[tools]' newsapi-python
 uv add 'crewai-tools[mcp]'
 uv add ddgs duckduckgo-search
+uv add llama-index-embeddings-ollama
+uv add llama-index-llms-ollama
 uv add ollama
-cd /home/$USER
+uv add "mcp[cli]" pandas-ta alpaca-py
 
+# Sanity check: confirm the venv is actually running 3.13
+uv run python --version
+cd /home/$USER
+	
 # Create script to activate 'crewai_pjt' env
 echo '#!/bin/bash'                                                         | tee     /home/$USER/activate_crewai_env.sh
 echo "echo 'Execute this file as: source activate_crewai_env.sh' "         | tee -a  /home/$USER/activate_crewai_env.sh
@@ -89,7 +116,6 @@ echo "echo '(Note the change in prompt after activating)' "                | tee
 echo "echo '(To deactivate, just enter the command: deactivate)' "         | tee -a  /home/$USER/activate_crewai_env.sh
 echo "source /home/$USER/crewai_pjt/.venv/bin/activate"                    | tee -a  /home/$USER/activate_crewai_env.sh
 echo "cd /home/$USER/crewai_pjt"                                           | tee -a  /home/$USER/activate_crewai_env.sh
-
 ###########
 
 cd ~/   
