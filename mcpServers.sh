@@ -15,16 +15,13 @@ rm -rf /home/$USER/crewai_pjt/mcp_servers
 rm -rf /tmp/llms_sparse_tmp
 mkdir -p /tmp/llms_sparse_tmp
 cd /tmp/llms_sparse_tmp
-
 git init
 git remote add origin https://github.com/harnalashok/LLMs.git
 git sparse-checkout init --cone
 git sparse-checkout set crewaiModels/mcp_servers
 git pull origin main
-
 mkdir -p /home/$USER/crewai_pjt/mcp_servers
 cp -r crewaiModels/mcp_servers/. /home/$USER/crewai_pjt/mcp_servers/
-
 rm -rf /tmp/llms_sparse_tmp
 read -p "Press [Enter] to continue..."
 sleep 5
