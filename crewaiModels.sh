@@ -151,10 +151,7 @@ rm -rf /home/$USER/Documents/crewaiExamples
 cd /home/$USER
 \cp -r /home/$USER/Documents/crewaiModels/. /home/$USER/crewai_pjt
 
-# mcp servers
-mkdir /home/$USER/crewai_pjt/servers
-cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_server.py     /home/$USER/crewai_pjt/servers/
-cp 	  /home/$USER/crewai_pjt/mcp_servers/'maths_stdio server'/maths_stdio_client.py     /home/$USER/crewai_pjt/
+
 #     Job data
 mkdir /home/$USER/crewai_pjt/job_data
 cp    /home/$USER/crewai_pjt/Exercises/jobs.csv  /home/$USER/crewai_pjt/job_data
