@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# LAst amended: 26th Sep, 2026
+# LAst amended: 27th Sep, 2026
 
 ## =========
 # Replace existing mcp_servers folder in WSL ubuntu 
@@ -11,19 +11,24 @@
 #  bash mcpServers.sh
 ## =========
 
-cd ~/
-#wget -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
-wget  -Nc https://github.com/harnalashok/test/blob/main/mcpServers.zip?raw=true
-mv 'mcpServers.zip?raw=true' mcpServers.zip
-rm -rf /home/$USER/crewai_pjt/mcp_servers/*
-mkdir -p /home/ashok/crewai_pjt/mcp_servers
-mv mcpServers.zip /home/$USER/crewai_pjt/mcp_servers/
-cd  /home/$USER/crewai_pjt/mcp_servers/
-unzip mcpServers.zip
-cd ~/
+rm -rf /home/$USER/crewai_pjt/mcp_servers
+rm -rf /tmp/llms_sparse_tmp
+mkdir -p /tmp/llms_sparse_tmp
+cd /tmp/llms_sparse_tmp
 
+git init
+git remote add origin https://github.com/harnalashok/LLMs.git
+git sparse-checkout init --cone
+git sparse-checkout set crewaiModels/mcp_servers
+git pull origin main
+
+mkdir -p /home/$USER/crewai_pjt/mcp_servers
+cp -r crewaiModels/mcp_servers/. /home/$USER/crewai_pjt/mcp_servers/
+
+rm -rf /tmp/llms_sparse_tmp
 read -p "Press [Enter] to continue..."
 sleep 5
+
 cd ~/
  . activate_crewai_env.sh
 uv add llama-index-llms-ollama
